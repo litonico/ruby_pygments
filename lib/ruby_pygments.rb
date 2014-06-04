@@ -17,7 +17,6 @@ module Ruby_Pygments
                         'lexer': '#{lexerstr}',
                         }))
             @in.close
-            puts @out.read
         }
 
         py_error = @err.read
@@ -25,5 +24,7 @@ module Ruby_Pygments
             raise "Python Exception: #{py_error}"
         end
         @err.close
+
+        @out.read
     end
 end
